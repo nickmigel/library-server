@@ -5,6 +5,11 @@ exports.up = function (knex) {
         tbl.string('song_name').notNullable()
         tbl.string('artist_name').notNullable()
         tbl.string('song_length').notNullable()
+        tbl.integer('user_id').notNullable()
+            .references('id')
+            .inTable('user')
+            .onDelete('CASCADE')
+            .onUpdate('CASCADE')
     })
 };
 
